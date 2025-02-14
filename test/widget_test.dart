@@ -9,6 +9,10 @@ import 'package:flutter_test/flutter_test.dart';
 
 void main() {
   group('String Calculator', () {
+
+    test('should return 0 for empty string', () {
+      expect(add(""), 0);
+    });
   });
 }
 
