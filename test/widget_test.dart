@@ -23,6 +23,11 @@ void main() {
       expect(add("1,2"), 3);
       expect(add("3,4"), 7);
     });
+
+     test('should handle multiple numbers', () {
+      expect(add("1,2,3"), 6);
+      expect(add("1,2,3,4,5"), 15);
+    });
   });
 }
 
