@@ -28,6 +28,11 @@ void main() {
       expect(add("1,2,3"), 6);
       expect(add("1,2,3,4,5"), 15);
     });
+
+    test('should handle newlines as delimiters', () {
+      expect(add("1\n2"), 3);
+      expect(add("1,2\n3"), 6);
+    });
   });
 }
 
@@ -37,20 +42,19 @@ int add(String numbers) {
     return 0;
   }
 
-  // Handle custom delimiters
   if (numbers.startsWith("//")) {
     final delimiter = numbers[
-        2]; // Assumes single character delimiter for simplicity.  Could be expanded.
-    final remainingNumbers = numbers.substring(4); // Skip "//x\n"
+        2]; 
+    final remainingNumbers = numbers.substring(4); 
     return _sumNumbers(remainingNumbers, delimiter);
   } else {
-    return _sumNumbers(numbers, ','); // Default delimiter is comma
+    return _sumNumbers(numbers, ',');
   }
 }
 
 int _sumNumbers(String numbers, String delimiter) {
   String cleanedNumbers =
-      numbers.replaceAll('\n', delimiter); // Treat newlines as delimiters too
+      numbers.replaceAll('\n', delimiter);
 
   if (cleanedNumbers.contains('-')) {
     List<int> negatives = [];
