@@ -43,6 +43,11 @@ void main() {
       expect(() => add("-1,2"), throwsA(isA<Exception>()));
       expect(() => add("1,-2,3,-4"), throwsA(isA<Exception>()));
     });
+
+    test('should ignore numbers greater than 1000', () {
+      expect(add("1,1001,2"), 3);
+      expect(add("1002,2,3"), 5);
+    });
   });
 }
 
