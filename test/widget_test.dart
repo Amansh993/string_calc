@@ -38,6 +38,11 @@ void main() {
       expect(add("//;\n1;2"), 3);
       expect(add("//\$\n1\$2\$3"), 6);
     });
+
+    test('should throw exception for negative numbers', () {
+      expect(() => add("-1,2"), throwsA(isA<Exception>()));
+      expect(() => add("1,-2,3,-4"), throwsA(isA<Exception>()));
+    });
   });
 }
 
