@@ -18,6 +18,11 @@ void main() {
       expect(add("1"), 1);
       expect(add("2"), 2);
     });
+
+    test('should return the sum of two numbers', () {
+      expect(add("1,2"), 3);
+      expect(add("3,4"), 7);
+    });
   });
 }
 
